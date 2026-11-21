@@ -2,7 +2,9 @@
 // itself is the static site under game/; this program copies game/ and
 // screenshots/ into the grader's /output (MAKEFUN_OUTPUT_DIR locally) and
 // writes dossier.json with the vendored make.fun library so the judge
-// reads exactly the files that were handed in.
+// reads exactly the files that were handed in. The copy is byte-for-byte:
+// main.ts never transforms the game's files, so two runs hand in the same
+// bytes and the dossier the gate rebuilds matches this one exactly.
 import { cpSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
